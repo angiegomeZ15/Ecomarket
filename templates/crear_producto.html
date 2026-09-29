@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-4" style="max-width: 600px;">
+    <!-- Título Principal -->
+    <h2 class="text-center font-weight-bold mb-4">
+        REGISTRO DE DATOS ✍️ 🖥️
+    </h2>
+
+    <form action="{{ url_for('crear_producto') }}" method="POST">
+        <!-- NOMBRE -->
+        <div class="form-group mb-3">
+            <label class="font-weight-bold text-uppercase">NOMBRE:</label>
+            <input type="text" name="producto" class="form-control" style="background-color: #f0f4ff;" placeholder="Ej: Angie" required>
+        </div>
+
+        <!-- EDAD -->
+        <div class="form-group mb-3">
+            <label class="font-weight-bold text-uppercase">EDAD:</label>
+            <input type="number" name="edad" class="form-control" placeholder="Ej: 25" min="1" max="120" required>
+        </div>
+
+        <!-- CIUDAD (Lista Desplegable) -->
+        <div class="form-group mb-3">
+            <label class="font-weight-bold text-uppercase">CIUDAD:</label>
+            <select name="ciudad" class="form-control custom-select" required>
+                <option value="Medellín">Medellín</option>
+                <option value="Bogotá">Bogotá</option>
+                <option value="Cali">Cali</option>
+                <option value="Barranquilla">Barranquilla</option>
+                <option value="Bucaramanga">Bucaramanga</option>
+                <option value="Cartagena">Cartagena</option>
+                <option value="Pereira">Pereira</option>
+            </select>
+        </div>
+
+        <!-- VENTAS -->
+        <div class="form-group mb-3">
+            <label class="font-weight-bold text-uppercase">VENTAS:</label>
+            <input type="number" step="any" name="ventas" class="form-control" placeholder="10000000" required>
+        </div>
+
+        <!-- SATISFACCIÓN -->
+        <div class="form-group mb-4">
+            <label class="font-weight-bold text-uppercase">SATISFACCIÓN:[1 -5]</label>
+            <input type="number" name="satisfaccion" class="form-control" min="1" max="5" value="5" required>
+        </div>
+
+        <!-- BOTÓN GUARDAR -->
+        <button type="submit" class="btn btn-dark btn-block w-100 py-2 font-weight-bold mb-3" style="background-color: #333;">
+            GUARDAR DATOS 🚀
+        </button>
+    </form>
+
+    <!-- ENLACE AL DASHBOARD -->
+    <div class="text-center mt-3">
+        <a href="{{ url_for('dashboard') }}" class="font-weight-bold text-primary" style="text-decoration: underline;">
+            💻 VER ANÁLISIS Y DASHBOARD 📈
+        </a>
+    </div>
+</div>
+{% endblock %}

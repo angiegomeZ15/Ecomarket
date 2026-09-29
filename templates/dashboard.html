@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <!-- Título Principal -->
+    <h2 class="text-center font-weight-bold mb-4">
+        DASHBOARD ANALITICA Y GRAFICOS 🖥️ 🚀
+    </h2>
+
+    <!-- Tarjetas de Métricas Estadísticas exactas -->
+    <div class="row text-center mb-4 justify-content-center">
+        <div class="col-md-2 mb-3">
+            <div class="card shadow-sm border-0 py-3">
+                <div class="card-body py-1">
+                    <h6 class="card-title text-uppercase font-weight-bold">REGISTROS</h6>
+                    <h3 class="font-weight-bold mt-2">{{ metricas.registros }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+            <div class="card shadow-sm border-0 py-3">
+                <div class="card-body py-1">
+                    <h6 class="card-title text-uppercase font-weight-bold">VENTAS TOTALES</h6>
+                    <h3 class="font-weight-bold mt-2">{{ metricas.ventas_totales }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+            <div class="card shadow-sm border-0 py-3">
+                <div class="card-body py-1">
+                    <h6 class="card-title text-uppercase font-weight-bold">PROMEDIO VENTAS</h6>
+                    <h3 class="font-weight-bold mt-2">{{ metricas.promedio_ventas }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+            <div class="card shadow-sm border-0 py-3">
+                <div class="card-body py-1">
+                    <h6 class="card-title text-uppercase font-weight-bold">PROMEDIO EDAD</h6>
+                    <h3 class="font-weight-bold mt-2">{{ metricas.promedio_edad }}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+            <div class="card shadow-sm border-0 py-3">
+                <div class="card-body py-1">
+                    <h6 class="card-title text-uppercase font-weight-bold">SATISFACCIÓN</h6>
+                    <h3 class="font-weight-bold mt-2">{{ metricas.satisfaccion }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace para ir al Registro de Datos -->
+    <div class="text-center mb-4">
+        <a href="{{ url_for('crear_producto') }}" class="btn btn-outline-primary font-weight-bold">
+            ✍️ REGISTRAR NUEVOS DATOS
+        </a>
+    </div>
+
+    <hr class="my-4">
+
+    <!-- Sección de Gráficas Analíticas -->
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card p-3 shadow-sm border-0">
+                <img src="{{ url_for('static', filename='images/ventas_ciudad.png') }}" class="img-fluid rounded" alt="Ventas por Ciudad">
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card p-3 shadow-sm border-0">
+                <img src="{{ url_for('static', filename='images/promedio_ciudad.png') }}" class="img-fluid rounded" alt="Promedio de Ventas">
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card p-3 shadow-sm border-0">
+                <img src="{{ url_for('static', filename='images/distribucion_ventas.png') }}" class="img-fluid rounded" alt="Distribución de Ventas">
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card p-3 shadow-sm border-0">
+                <img src="{{ url_for('static', filename='images/ventas_vs_satisfaccion.png') }}" class="img-fluid rounded" alt="Ventas vs Satisfacción">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
